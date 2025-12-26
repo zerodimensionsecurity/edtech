@@ -8,11 +8,11 @@ import {
     getBlogs,
     deleteBlog
 } from "../../controllers/blogs/blogs.controllers.js"
-import { isAuthenticated } from "../../middlewares/authentication/auth.middleware.js";
+import { isAuthenticated,isAuthorizedAdmin,isAuthorizedUser } from "../../middlewares/authentication/auth.middleware.js";
 
-router.route("/blog").post(isAuthenticated,createBlog);
-router.route("/blogs").get(isAuthenticated,getBlogs);
-router.route("/blog/:id").get(isAuthenticated,getBlogById)
+router.route("/").post(isAuthenticated,isAuthorizedAdmin,createBlog);
+router.route("/blogs").get(getBlogs);
+router.route("/blog/:id").get(getBlogById)
                          .delete(isAuthenticated,deleteBlog);
 
 

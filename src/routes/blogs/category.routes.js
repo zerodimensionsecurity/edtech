@@ -12,16 +12,16 @@ import {
     toggleCategoryStatus
 } from "../../controllers/blogs/category.controllers.js"
 
-import { isAuthenticated } from "../../middlewares/authentication/auth.middleware.js";
+import { isAuthenticated,isAuthorizedAdmin } from "../../middlewares/authentication/auth.middleware.js";
 
 
-router.route("/").post(isAuthenticated,createCategory);
-router.route("/").get(isAuthenticated,getAllCategory);
-router.route("/:id").get(isAuthenticated,getOneCategory)
-                             .patch(isAuthenticated,updateCategory)
-                             .delete(isAuthenticated,softDeleteCategory);
+router.route("/").post(isAuthenticated,isAuthorizedAdmin,createCategory);
+router.route("/").get(getAllCategory);
+router.route("/:id").get(getOneCategory)
+                             .patch(isAuthenticated,isAuthorizedAdmin,updateCategory)
+                             .delete(isAuthenticated,isAuthorizedAdmin,softDeleteCategory);
 
-router.route("/status/:id").patch(isAuthenticated,toggleCategoryStatus);
+router.route("/status/:id").patch(isAuthenticated,isAuthorizedAdmin,toggleCategoryStatus);
 
 
 export default router;
