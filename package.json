@@ -137,7 +137,7 @@
     "node-addon-api": "^5.1.0",
     "node-cron": "^3.0.3",
     "node-fetch": "^2.7.0",
-    "nodemon": "^3.1.9",
+    "nodemon": "^3.1.11",
     "nopt": "^5.0.0",
     "normalize-path": "^3.0.0",
     "npmlog": "^5.0.1",

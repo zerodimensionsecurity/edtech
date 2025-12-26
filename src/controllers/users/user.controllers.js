@@ -60,7 +60,7 @@ const login = catchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler("Bad request", 400));
     }
 
-    const user = await User.findOne({ email }).select("+password +failedLoginAttempts +lockUntil +isDeleted");
+    const user = await User.findOne({ email }).select("+password +failedLoginAttempts +lockUntil +isDeleted +role");
 
     if (!user) {
         return next(new ErrorHandler("Incorrect Email or password", 401));

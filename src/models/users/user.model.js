@@ -134,7 +134,7 @@ userSchema.methods.getJwtAuthorizationToken = function(){
         },
         process.env.JWT_SECRET,
         {expiresIn:"1d"},
-    ).toString();
+    )
 }
  
 userSchema.methods.comparePassword = async function(password){

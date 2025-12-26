@@ -25,7 +25,7 @@ connectToDb()
         /**
          * Connecting to Redis
          */
-        connectRedis();
+        // connectRedis();
     })
     .catch((err) => {
         console.log(`Error connecting to DB app is not running ${err}`);
