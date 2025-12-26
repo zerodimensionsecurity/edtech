@@ -44,7 +44,7 @@ const blogSchema = new Schema(
     status: { 
         type: String, 
         enum: ['DRAFT', 'PUBLISHED', 'ARCHIVED'], 
-        default: 'draft' 
+        default: 'DRAFT' 
     }, 
     publishedAt: { 
         type: Date,

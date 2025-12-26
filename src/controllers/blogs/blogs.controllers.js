@@ -11,7 +11,7 @@ import { isValidId } from "../../utils/validation.js";
  */
 const createBlog = catchAsyncError(async(req,res,next) => {
     const {title,content,excerpt,category,tags,featuredImage,media,approvedBy} = req.body;
-    if(!title,!content,!excerpt,!category,tags,featuredImage,media,!publishedBy){
+    if(!title,!content,!excerpt,!category,tags,featuredImage,media){
         return next(new ErrorHandler("Bad Request",400));
     }
 
@@ -32,7 +32,7 @@ const createBlog = catchAsyncError(async(req,res,next) => {
         tags,
         featuredImage,
         media,
-        approvedBy:user, //TO-DO change to admin user.
+        approvedBy:user, 
         author:user
     });
 
